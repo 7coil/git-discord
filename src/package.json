@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/moustacheminer/Discord-git-bot/issues"
   },
-  "homepage": "https://github.com/moustacheminer/Discord-git-bot#readme"
+  "homepage": "https://github.com/moustacheminer/Discord-git-bot#readme",
+  "dependencies": {
+    "discord.js": "^11.0.0"
+  }
 }
