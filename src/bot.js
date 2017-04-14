@@ -199,7 +199,7 @@ client.on("message", function(message) {
 			});
 
 	} else if(input[1] === "help" || input[1] === "--help") {
-		return message.channel.sendMessage("`git-gud bot by ` <@190519304972664832> `, http://moustacheminer.com`");
+		return message.channel.sendMessage("`git-gud bot by 7coil, http://moustacheminer.com`");
 	}
 
 	//Check if it's an invalid git command
