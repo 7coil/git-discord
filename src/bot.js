@@ -2,6 +2,7 @@
 const config = require("./config.json");
 const API = require("./api.json");
 const Discord = require("discord.js");
+const exec = require('child_process').exec;
 const client = new Discord.Client();
 
 const command = [
@@ -187,8 +188,14 @@ client.on("message", function(message) {
 	//Stop if it's not a git command
 	if (!(input[0] === "git")) return false;
 
-	if(input[1] === "help" || input[1] === "--help") {
-		return message.sendMessage("`git-gud bot by ` <@190519304972664832> `, http://moustacheminer.com`");
+	if(input[1] === "pull" && message.author.id === config.MSS.sysadmin) {
+		exec("git pull", function(error, stdout, stderr) {
+			 message.channel.sendMessage("```\n" + stdout + "\n```");
+		});
+	} else if(input[1] === "restart" && message.author.id === config.MSS.sysadmin) {
+		process.exit(0);
+	} else if(input[1] === "help" || input[1] === "--help") {
+		return message.channel.sendMessage("`git-gud bot by ` <@190519304972664832> `, http://moustacheminer.com`");
 	}
 
 	//Check if it's not a valid git command
