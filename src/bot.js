@@ -185,7 +185,7 @@ client.on("message", function(message) {
 	let input = message.content.split(" ");
 
 	//Stop if it's not a git command
-	if (!(input === "git")) return false;
+	if (!(input[0] === "git")) return false;
 
 	//Check if it's not a valid git command
 	if (!(command[input[1]])) {
