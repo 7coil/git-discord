@@ -187,6 +187,10 @@ client.on("message", function(message) {
 	//Stop if it's not a git command
 	if (!(input[0] === "git")) return false;
 
+	if(input[0] === "help" || input[0] === "--help") {
+		return message.sendMessage("`git-gud bot by ` <@190519304972664832> `, http://moustacheminer.com`");
+	}
+
 	//Check if it's not a valid git command
 	if (!(command[input[1]])) {
 		message.channel.sendMessage("`git: '" + input[1] + "' is not a git command. See 'git --help'.`");
