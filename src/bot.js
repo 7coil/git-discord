@@ -199,7 +199,7 @@ client.on("message", function(message) {
 	}
 
 	//Check if it's not a valid git command
-	if (!(command.contains(input[1])) {
+	if (!(command.contains(input[1]))) {
 		message.channel.sendMessage("`git: '" + input[1] + "' is not a git command. See 'git --help'.`");
 	}
 
