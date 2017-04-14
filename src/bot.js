@@ -193,6 +193,7 @@ client.on("message", function(message) {
 			 message.channel.sendMessage("```\n" + stdout + "\n```");
 		});
 	} else if(input[1] === "restart" && message.author.id === config.MSS.sysadmin) {
+		message.channel.sendMessage("`git: '" + input[1] + "' is not a git command... but it will work anyway. Restarting!`");
 		process.exit(0);
 	} else if(input[1] === "help" || input[1] === "--help") {
 		return message.channel.sendMessage("`git-gud bot by ` <@190519304972664832> `, http://moustacheminer.com`");
