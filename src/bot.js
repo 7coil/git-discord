@@ -183,7 +183,7 @@ client.on("message", function(message) {
 		message.content = message.content.substring(3);
 	}
 
-	let input = message.content.split(" ");
+	let input = message.content.toLowerCase().split(" ");
 
 	//Stop if it's not a git command
 	if (!(input[0] === "git")) return false;
