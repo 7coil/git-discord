@@ -197,7 +197,6 @@ client.on("message", function(message) {
 			.then( function() {
 				process.exit(0);
 			});
-
 	} else if(input[1] === "help" || input[1] === "--help") {
 		return message.channel.sendMessage("`git-gud bot by 7coil, http://moustacheminer.com/`");
 	}
