@@ -187,6 +187,9 @@ client.on("message", function(message) {
 
 	//Stop if it's not a git command
 	if (!(input[0] === "git")) return false;
+	
+	//Stop if it's just git by itself
+	if (!input[1]) return false;
 
 	if(input[1] === "pull" && message.author.id === config.MSS.sysadmin) {
 		exec("git pull", function(error, stdout, stderr) {
