@@ -201,6 +201,9 @@ client.on("message", function(message) {
 		exec("git pull", function(error, stdout, stderr) {
 			 message.channel.sendMessage("```\n" + stdout + "\n```");
 		});
+	} else if (input[1] === "push") {
+		dbotsupdate();
+		message.channel.sendMessage("```\nPushed Discord Bots Statistics\n```");
 	} else if(input[1] === "restart" && message.author.id === config.MSS.sysadmin) {
 		message.channel.sendMessage("`git: '" + input[1] + "' is not a git command... but it will work anyway. Restarting!`")
 			.then( function() {
