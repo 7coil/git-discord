@@ -3,6 +3,7 @@ const config = require("./config.json");
 const API = require("./api.json");
 const Discord = require("discord.js");
 const exec = require('child_process').exec;
+const request = require('request');
 const client = new Discord.Client();
 
 const command = [
@@ -162,6 +163,11 @@ client.login(API.discord);
 client.on("ready", function() {
 	console.log("Successfully connected to Discord!");
 	client.user.setGame(config.MSS.prefix + " gud | " + config.MSS.version);
+	
+	dbotsupdate();
+	setInterval(() => {
+		dbotsupdate();
+	}, 1800000);
 });
 
 client.on("message", function(message) {
@@ -214,3 +220,19 @@ client.on("message", function(message) {
 process.on("unhandledRejection", function(err) {
   console.error("Uncaught Promise Error: \n" + err.stack);
 });
+
+function dbotsupdate() {
+	let data = {
+		url: `https://bots.discord.pw/api/bots/${client.user.id}/stats`,
+		method: "POST",
+		json: true,
+		headers: {
+			authorization: API.dBots
+		},
+		body: {
+			server_count: client.guilds.size
+		}
+	}
+	
+	request.post(data);
+}
