@@ -172,6 +172,9 @@ client.on("ready", function() {
 
 client.on("message", function(message) {
 
+	//Stop if it's a bot!
+	if (message.user.bot) return false;
+
 	//Replace newlines with a space
 	message.content = message.content.replace("\n", " ");
 
