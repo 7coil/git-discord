@@ -206,7 +206,8 @@ client.on("message", function(message) {
 		});
 	} else if (input[1] === "push"  && message.author.id === config.MSS.sysadmin) {
 		dbotsupdate();
-		message.channel.sendMessage("```\nPushed Discord Bots Statistics\n```");
+		fakedbotsupdate();
+		message.channel.sendMessage("```\nPushed Discord Bots Statistics\n(oh and also Discord Bot List statistics)\n```");
 	} else if(input[1] === "restart" && message.author.id === config.MSS.sysadmin) {
 		message.channel.sendMessage("`git: '" + input[1] + "' is not a git command... but it will work anyway. Restarting!`")
 			.then( function() {
@@ -240,5 +241,21 @@ function dbotsupdate() {
 		}
 	}
 	
+	request.post(data);
+}
+
+function fakedbotsupdate() {
+	let data = {
+		url: `https://discordbots.org/api/bots/${client.user.id}/stats`,
+		method: "POST",
+		json: true,
+		headers: {
+			authorization: API.fakedBots
+		},
+		body: {
+			server_count: client.guilds.size
+		}
+	}
+
 	request.post(data);
 }
