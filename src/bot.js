@@ -206,15 +206,15 @@ client.on('message', (message) => {
 
 		// Stop if it's not a git command
 		if (input[0] === 'git' && input[1]) {
-			if (input[1] === 'pull' && message.author.id === config.MSS.sysadmin) {
+			if (input[1] === 'pull' && config.get('admins').includes(message.author.id)) {
 				exec('git pull', (error, stdout) => {
 					message.channel.send(`\`\`\`\n${stdout}\n\`\`\``);
 				});
-			} else if (input[1] === 'push' && message.author.id === config.MSS.sysadmin) {
+			} else if (input[1] === 'push' && config.get('admins').includes(message.author.id)) {
 				utils.botsdiscordpw(client);
 				utils.discordbotsorg(client);
 				message.channel.send('```\nPushed Discord Bots Statistics\n(oh and also Discord Bot List statistics)\n```');
-			} else if (input[1] === 'restart' && message.author.id === config.MSS.sysadmin) {
+			} else if (input[1] === 'restart' && config.get('admins').includes(message.author.id)) {
 				message.channel.send(`\`git: '${input[1]}' is not a git command... but it will work anyway. Restarting!\``)
 					.then(() => {
 						process.exit(0);
