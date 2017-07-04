@@ -1,9 +1,9 @@
 const Discord = require('discord.js');
-const config = require('./config.json');
-const API = require("./api.json");
-const manager = new Discord.ShardingManager('./bot.js', {
-	token: API.discord
+const config = require('config');
+
+const manager = new Discord.ShardingManager('./src/bot.js', {
+	token: config.get('api').discord.token
 });
 
-//Spawn with a relevant number of shards automatically
+// Spawn with a relevant number of shards automatically
 manager.spawn();

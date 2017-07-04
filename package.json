@@ -1,0 +1,25 @@
+{
+  "name": "git-discord",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/moustacheminer/git-discord.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/moustacheminer/git-discord/issues"
+  },
+  "homepage": "https://github.com/moustacheminer/git-discord#readme",
+  "dependencies": {
+    "config": "^1.26.1",
+    "discord.js": "^11.1.0",
+    "eslint": "^4.1.1",
+    "request": "^2.81.0"
+  }
+}

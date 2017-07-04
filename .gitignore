@@ -46,3 +46,6 @@ Network Trash Folder
 Temporary Items
 .apdisk
 /src/node_modules/
+/src/api.json
+/config/default.json
+/node_modules/

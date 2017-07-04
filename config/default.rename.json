@@ -1,0 +1,17 @@
+{
+	"api": {
+		"discord": {
+			"clientID": "302552989439361024",
+			"clientSecret": "",
+			"scope": [ "identify" ],
+			"token": ""
+		},
+		"discordbotsorg": "",
+		"botsdiscordpw": ""
+	},
+	"useragent": "git-discord; Like Moustacheminer Server Services/4.0 (noud.js; Linux x86_64)",
+	"admins": [
+		"190519304972664832"
+	],
+	"prefix": "git"
+}
